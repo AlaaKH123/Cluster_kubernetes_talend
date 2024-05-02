@@ -12,7 +12,9 @@ v1 = client.BatchV1Api()
 @app.route("/runjob", methods=["POST"])
 def run_job():
     # Job name (optional: get from request if needed)
-    job_name = "generate"
+    # Get job details from the request
+    job_name = request.json["name"]
+    image_name = request.json["image"]
 
     # Define the job spec
     job = client.V1Job(
@@ -23,8 +25,8 @@ def run_job():
             template=client.V1PodTemplateSpec(
                 spec=client.V1PodSpec(
                     containers=[client.V1Container(
-                        name="jgeneratedata",
-                        image="alakh1111/jgeneratedata_kube",
+                        name=job_name,
+                        image=image_name,
                         #image="busybox:latest",  # Use a simple image like busybox
                         #command=["sh", "-c", "echo 'Hello, talend!' && sleep 30"],
                     )],
