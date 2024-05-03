@@ -7,6 +7,6 @@ spec:
     app: flask
   ports:
     - protocol: TCP
-      port: 5000  # Port utilisé par le service dans le cluster
-      targetPort: 5000  # Port sur lequel le conteneur de l'application écoute
-  type: NodePort  # Type de service pour exposer l'application via un port sur chaque nœud du cluster
+      port: 5000  
+      targetPort: 5000  
+  type: NodePort  

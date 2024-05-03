@@ -1,17 +1,12 @@
 import json
 import requests
-
-# Définir les données JSON pour la requête (si nécessaire)
+# Construct the JSON data
 json_data = {
-    "name": "jobgenerate",
-    "image": "alakh1111/jgeneratedata_kube"
+    "name" : "jobtalendgenerate",
+    "image" : "alakh1111/jgeneratedata_kube"
 }
-
-# Définir le type de contenu de la requête comme étant JSON
-headers = {"Content-Type": "application/json"}
-
-# Envoyer une requête POST à l'endpoint /runjob de votre application Flask avec les données JSON et les en-têtes appropriés
-response = requests.post("http://127.0.0.1:5000/runjob", json=json_data, headers=headers)
-
-# Afficher la réponse pour le débogage
-print(response.text)
+# Send the request to the Flask application
+utf8_encoded_data = json.dumps(json_data, ensure_ascii=False).encode("utf-8")
+response = requests.post("http://localhost/runjob", json=json_data, headers={"Content-Type": "application/json"})
+print(response.text)  # Print response for debugging
+ 

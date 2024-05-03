@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: flask
-        image: alakh1111/talendcontroller  # Remplacer par l'image de votre application flask
+        image: trabelsii/flask-on-kube   # Remplacer par l'image de votre application flask
         ports:
         - containerPort: 5000  # Port sur lequel votre application écoute
